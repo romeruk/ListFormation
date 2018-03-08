@@ -13,4 +13,6 @@ npm run dev
 npm run build
 ```
 
-<img src="https://github.com/romeruk/TaskManager/blob/master/src/appImages/task%20manager.png">
+<img src="https://github.com/romeruk/ListFormation/blob/master/src/appImages/photo1.png">
+<img src="https://github.com/romeruk/ListFormation/blob/master/src/appImages/photo2.png">
+<img src="https://github.com/romeruk/ListFormation/blob/master/src/appImages/photo3.png">
