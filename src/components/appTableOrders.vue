@@ -15,7 +15,8 @@
             <tr 
               v-for="(item, index) in purchases" 
               :key="item.id" 
-              :class="{ 'gradient-amber-light-45': item.checked}">
+              :class="{ 'gradient-amber-light-45': item.checked}"
+            >
               <td>
                   <input 
                     v-model="item.checked" 
@@ -40,16 +41,16 @@
     </div>
     <div class="row hoverable gradient-cyan-45 white-text"> 
       <div class="col s12 m4">
-        <blockquote>
-          <p class="flow-text">Загальна сума: <span class="flow-text-span">{{valueOfItems}}</span> грн</p>
+        <blockquote class="text-center-less-600px">
+          <p class="flow-text">Загальна сума: <strong>{{valueOfItems}}</strong> грн</p>
         </blockquote>
       </div>
       <div class="col s12 m4">
-        <p class="flow-text center-align">Загальна кількість: <span class="flow-text-span">{{countItems}}</span> шт</p>
+        <p class="flow-text center-align">Загальна кількість: <strong>{{countItems}}</strong> шт</p>
       </div>
 
       <div class="col s12 m4">
-        <p class="flow-text right-align">
+        <p class="flow-text right-align text-center-less-600px">
           <a @click="removeChecked" class="waves-effect waves-light btn">Видалити вибрані</a>
         </p>
       </div>
@@ -126,15 +127,11 @@ export default {
 th {
   border-radius: 0;
 }
-.flow-text-span {
-  font-weight: 400;
-}
-.list-enter-active, .list-leave-active {
-  transition: all 1s;
-}
-.list-enter, .list-leave-to /* .list-leave-active до версии 2.1.8 */ {
-  opacity: 0;
-  transform: translateY(30px);
+@media only screen and (max-width: 600px) {
+  .text-center-less-600px {
+    text-align: center !important;
+    padding: 0 !important;
+  }
 }
 </style>
 

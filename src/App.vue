@@ -28,14 +28,14 @@
               class="autocomplete"
             >
             <label for="autocomplete-input">Назва</label>
-            <span 
+            <small 
               v-if="!$v.itemTitle.required"
               class="blue-text text-darken-2">Поле обов'язкове для заповнення
-            </span>
-            <span 
+            </small>
+            <small 
               v-if="!$v.itemTitle.minLength"
               class="blue-text text-darken-2">Мінімальна кількість символів {{ $v.itemTitle.$params.minLength.min }}
-            </span>
+            </small>
           </div>
         </div>
         <div class="row">
@@ -48,14 +48,14 @@
               class="validate"
             >
             <label for="item_value">Ціна</label>
-            <span 
+            <small 
               v-if="!$v.value.required"
               class="blue-text text-darken-2">Поле обов'язкове для заповнення
-            </span>
-            <span 
+            </small>
+            <small 
               v-if="!$v.value.between"
               class="blue-text text-darken-2">Значення повинно бути між {{$v.value.$params.between.min}} і {{$v.value.$params.between.max}}
-            </span>
+            </small>
           </div>
           <div class="input-field col s12 m6">
             <input
@@ -65,14 +65,14 @@
               class="validate"
             >
             <label for="item_count">Кількість</label>
-            <span 
+            <small 
               v-if="!$v.numberOfTyres.required"
               class="blue-text text-darken-2">Поле обов'язкове для заповнення
-            </span>
-            <span 
+            </small>
+            <small 
               v-if="!$v.numberOfTyres.between"
               class="blue-text text-darken-2">Значення повинно бути між {{$v.numberOfTyres.$params.between.min}} і {{$v.numberOfTyres.$params.between.max}}
-            </span>
+            </small>
           </div>
         </div>
         <div class="row">
@@ -101,7 +101,7 @@
 <script>
 import appTableOrders from './components/appTableOrders.vue';
 import tyreData from './components/data';
-import { required, minLength, between, sameAs } from 'vuelidate/lib/validators';
+import { required, minLength, between } from 'vuelidate/lib/validators';
 
 export default {
   name: 'app',
@@ -138,7 +138,10 @@ export default {
   },
   mounted () {
     $('.modal').modal({
-      complete: () => this.editMode = false
+      complete: () => {
+        this.editMode = false;
+        this.clearFields ();
+      }
     });
     $(function () {
       $('input.autocomplete').autocomplete({
